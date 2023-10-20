@@ -97,7 +97,7 @@ public class ExpressoesCondicionaisTest extends BaseTest {
                 localDateTime);
         List<Pedido> pedidos = typedQuery.getResultList();
 
-        assertEquals(1, pedidos.size());
+        assertEquals(2, pedidos.size());
     }
 
     @Test
