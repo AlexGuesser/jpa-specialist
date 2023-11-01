@@ -1,3 +1,5 @@
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
 insert into produto (nome, preco, data_criacao, descricao) values ('Kindle', 499.0, date_sub(sysdate(), interval 1 day), 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
 insert into produto (nome, preco, data_criacao, descricao) values ('PS5', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
 insert into produto (nome, preco, data_criacao, descricao) values ('PS3', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
@@ -32,7 +34,7 @@ insert into categoria (nome) values ("Futebol");
 insert into categoria (nome) values ("Natação");
 insert into categoria (nome) values ("Notebooks");
 insert into categoria (nome) values ("Smartphones");
-insert into categoria (id, nome) values ('Câmeras');
+insert into categoria (nome) values ('Câmeras');
 
 insert into produto_categoria (produto_id, categoria_id) values (1,1), (2,1);
 insert into produto_categoria (produto_id, categoria_id) values (4, 9);

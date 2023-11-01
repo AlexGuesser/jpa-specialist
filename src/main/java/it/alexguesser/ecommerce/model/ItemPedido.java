@@ -6,7 +6,8 @@ import lombok.*;
 import java.math.BigDecimal;
 
 
-@Entity(name = "item_pedido")
+@Entity
+@Table(name = "item_pedido")
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

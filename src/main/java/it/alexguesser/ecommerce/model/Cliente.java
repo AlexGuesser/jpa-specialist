@@ -78,4 +78,15 @@ public class Cliente extends EntidadeBasePKInteger {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", primeiroNome='" + primeiroNome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", sexoCliente=" + sexoCliente +
+                ", dataNascimento=" + dataNascimento +
+                '}';
+    }
 }

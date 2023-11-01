@@ -3,6 +3,8 @@ package it.alexguesser.ecommerce.model;
 import it.alexguesser.ecommerce.listener.GerarNotaFiscalListener;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

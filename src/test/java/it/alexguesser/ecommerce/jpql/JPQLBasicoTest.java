@@ -89,4 +89,20 @@ public class JPQLBasicoTest extends BaseTest {
         lista.forEach(c -> System.out.println(c.getId() + ", " + c.getNome()));
     }
 
+    @Test
+    public void usarDistinct() {
+        String jpql = """
+                select distinct p from Pedido p
+                join p.itemPedidos i
+                join i.produto prod
+                where prod.id in (1, 2, 3, 4)
+                """;
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
+
+        List<Pedido> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+        System.out.println(lista.size());
+    }
+
 }

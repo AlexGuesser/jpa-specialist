@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -131,6 +132,43 @@ public class ExpressoesCondicionaisTest extends BaseTest {
         TypedQuery<Produto> typedQuery = entityManager.createQuery(jpql, Produto.class);
 
         List<Produto> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+    }
+
+
+    @Test
+    public void usarExpressaoCase() {
+        String jpql = """
+                select p.id,
+                case p.status
+                    when 'PAGO' then 'Está pago'
+                    when 'CANCELADO' then 'Foi cancelado!'
+                    else 'Está aguardando'
+                end,
+                case type(p.pagamento)
+                    when PagamentoBoleto then 'Pago com boleto'
+                    when PagamentoCartao then 'Pago com cartão'
+                    else 'Não foi pago ainda'
+                end
+                from Pedido p
+                """;
+
+        TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
+
+        List<Object[]> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+        lista.forEach(arr -> System.out.println(arr[0] + ", " + arr[1] + ", " + arr[2]));
+    }
+
+    @Test
+    public void usarExpressaoIn() {
+        List<Integer> listaIds = Arrays.asList(1, 3, 4);
+        String jpql = "select p from Pedido p where p.id in (:listaIds)";
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(jpql, Pedido.class);
+        typedQuery.setParameter("listaIds", listaIds);
+
+        List<Pedido> lista = typedQuery.getResultList();
         assertFalse(lista.isEmpty());
     }
 
