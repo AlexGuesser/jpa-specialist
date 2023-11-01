@@ -1,6 +1,6 @@
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
-insert into produto (nome, preco, data_criacao, descricao) values ('Kindle', 499.0, date_sub(sysdate(), interval 1 day), 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
+insert into produto (nome, preco, data_criacao, descricao) values ('Kindle', 500.0, date_sub(sysdate(), interval 1 day), 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
 insert into produto (nome, preco, data_criacao, descricao) values ('PS5', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
 insert into produto (nome, preco, data_criacao, descricao) values ('PS3', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
 insert into produto (id, nome, preco, data_criacao, descricao) values (4, 'Câmera GoPro Hero 7', 1400.0, date_sub(sysdate(), interval 1 day), 'Desempenho 2x melhor.');
@@ -21,6 +21,9 @@ insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) value
 
 insert into pedido (id, cliente_id, data_criacao, total, status) values (4, 2, date_sub(sysdate(), interval 2 day), 499.0, 'PAGO');
 insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (4, 1, 499, 1);
+
+insert into pedido (id, cliente_id, data_criacao, total, status) values (5, 2, date_sub(sysdate(), interval 2 day), 500, 'PAGO');
+insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (5, 1, 500, 1);
 
 insert into pagamento( pedido_id, status, numero_cartao, tipo_pagamento) values (2, 'PROCESSANDO', '123', 'cartao');
 

@@ -41,4 +41,14 @@ public class ItemPedido {
     @Column(nullable = false)
     private Integer quantidade;
 
+    @Override
+    public String toString() {
+        return "ItemPedido{" +
+                "id=" + id +
+                ", pedidoId=" + pedido.getId() +
+                ", produto=" + produto +
+                ", precoProduto=" + precoProduto +
+                ", quantidade=" + quantidade +
+                '}';
+    }
 }

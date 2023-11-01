@@ -20,9 +20,12 @@ import java.util.List;
 )
 @Getter
 @Setter
+@NamedQueries(
+        @NamedQuery(name = "Produto.listar", query = "select p from Produto p")
+)
 public class Produto extends EntidadeComDataCriacaoEAtualizacao {
 
-    @Column(length = 100, nullable  = false) // POR PADRÃO SERIA nome varchar(255)
+    @Column(length = 100, nullable = false) // POR PADRÃO SERIA nome varchar(255)
     private String nome;
 
     @Lob
@@ -84,5 +87,14 @@ public class Produto extends EntidadeComDataCriacaoEAtualizacao {
     @Override
     protected void preUpdate() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", preco=" + preco +
+                '}';
     }
 }

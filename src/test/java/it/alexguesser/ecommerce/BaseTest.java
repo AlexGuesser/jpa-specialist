@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 public abstract class BaseTest {
 
     public static final String ECOMMERCE_PU = "Ecommerce-PU";
-    private static EntityManagerFactory entityManagerFactory;
+    protected static EntityManagerFactory entityManagerFactory;
 
     protected EntityManager entityManager;
 
