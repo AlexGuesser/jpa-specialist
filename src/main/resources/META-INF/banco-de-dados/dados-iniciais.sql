@@ -43,4 +43,5 @@ insert into produto_categoria (produto_id, categoria_id) values (1,1), (2,1);
 insert into produto_categoria (produto_id, categoria_id) values (4, 9);
 insert into produto_categoria (produto_id, categoria_id) values (5, 9);
 
+drop function if exists acima_media_faturamento;
 create function acima_media_faturamento(valor double) returns boolean reads sql data return valor > (select avg(total) from pedido);
