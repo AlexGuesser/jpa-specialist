@@ -2,6 +2,8 @@ package it.alexguesser.ecommerce.criteria;
 
 import it.alexguesser.ecommerce.BaseTest;
 import it.alexguesser.ecommerce.ProdutoDto;
+import it.alexguesser.ecommerce.model.Cliente;
+import it.alexguesser.ecommerce.model.Cliente_;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.Produto;
 import jakarta.persistence.Tuple;
@@ -108,6 +110,25 @@ public class BasicoCriteriaTest extends BaseTest {
         assertFalse(lista.isEmpty());
         lista.forEach(System.out::println);
     }
+
+    @Test
+    public void ordenarResultados() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Cliente> criteriaQuery = criteriaBuilder.createQuery(Cliente.class);
+        Root<Cliente> root = criteriaQuery.from(Cliente.class);
+
+        //criteriaQuery.orderBy(criteriaBuilder.asc(root.get(Cliente_.NOME)));
+        criteriaQuery.orderBy(criteriaBuilder.desc(root.get(Cliente_.NOME)));
+
+        TypedQuery<Cliente> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Cliente> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+        lista.forEach(System.out::println);
+    }
+
+    /*
+    PAGINAÇÃO COM CRITERIA FUNCIONA DA MESMA FORMA QUE PAGINAÇÃO COM JPQL!!!
+     */
 
 
 }

@@ -26,6 +26,7 @@ insert into pedido (id, cliente_id, data_criacao, total, status) values (5, 2, d
 insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) values (5, 1, 500, 1);
 
 insert into pagamento( pedido_id, status, numero_cartao, tipo_pagamento) values (2, 'PROCESSANDO', '123', 'cartao');
+insert into pagamento( pedido_id, status, tipo_pagamento, data_vencimento, codigo_barras) values (3, 'RECEBIDO', 'boleto', sysdate(), "12345");
 
 insert into nota_fiscal ( pedido_id, xml, data_emissao ) values ( 2, '<xml />', sysdate() );
 
