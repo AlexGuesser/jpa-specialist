@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 import it.alexguesser.ecommerce.model.Produto_;
 import jakarta.persistence.TypedQuery;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class MetaModelTest extends BaseTest {
+public class MetaModelTest extends EntityManagerTest {
 
     @Test
     public void utilizarMetaModel() {

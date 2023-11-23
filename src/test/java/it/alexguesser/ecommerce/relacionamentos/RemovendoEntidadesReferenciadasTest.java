@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 
-public class RemovendoEntidadesReferenciadasTest extends BaseTest {
+public class RemovendoEntidadesReferenciadasTest extends EntityManagerTest {
 
     @Test
     public void removerEntidadeRelacionada() {

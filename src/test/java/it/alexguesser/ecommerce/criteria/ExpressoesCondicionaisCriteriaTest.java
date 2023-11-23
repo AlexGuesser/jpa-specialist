@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -11,11 +11,75 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class ExpressoesCondicionaisCriteriaTest extends BaseTest {
+public class ExpressoesCondicionaisCriteriaTest extends EntityManagerTest {
+
+    @Test
+    public void usarExpressaoIn() {
+        List<Integer> ids = Arrays.asList(1, 2, 3);
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.where(
+                root.get(Pedido_.id).in(ids));
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+    }
+
+    @Test
+    public void usarExpressaoIn2() {
+        Cliente cliente1 = entityManager.find(Cliente.class, 1);
+        Cliente cliente2 = new Cliente();
+        cliente2.setId(2);
+        List<Cliente> clientes = Arrays.asList(cliente1, cliente2);
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.where(
+                root.get(Pedido_.cliente).in(clientes));
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+    }
+
+    @Test
+    public void usarExpressaoCase() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        criteriaQuery.multiselect(
+                root.get(Pedido_.id),
+                criteriaBuilder.selectCase(root.get(Pedido_.status))
+                        .when(StatusPedido.PAGO, "Foi pago.")
+                        .when(StatusPedido.AGUARDANDO, "Está aguardando.")
+                        .otherwise(root.get(Pedido_.status)).as(String.class),
+                criteriaBuilder.selectCase(root.get(Pedido_.pagamento).type().as(String.class))
+                        .when("boleto", "Foi pago com boleto.")
+                        .when("cartao", "Foi pago com cartão")
+                        .otherwise("Não identificado")
+//                criteriaBuilder.selectCase(root.get(Pedido_.pagamento).type())
+//                        .when(PagamentoBoleto.class, "Foi pago com boleto.")
+//                        .when(PagamentoCartao.class, "Foi pago com cartão")
+//                        .otherwise("Não identificado")
+        );
+
+        TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
+
+        List<Object[]> lista = typedQuery.getResultList();
+        assertFalse(lista.isEmpty());
+
+        lista.forEach(arr -> System.out.println(arr[0] + ", " + arr[1] + ", " + arr[2]));
+    }
 
     @Test
     public void usarExpressaoCondicionalLike() {

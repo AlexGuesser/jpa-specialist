@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.jpql;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class GroupByTest extends BaseTest {
+public class GroupByTest extends EntityManagerTest {
 
     @Test
     public void agruparResultado() {

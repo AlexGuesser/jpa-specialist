@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Categoria;
 
-public class AutoRelacionamentoTest extends BaseTest {
+public class AutoRelacionamentoTest extends EntityManagerTest {
 
     @Test
     public void verificarRelacionamento() {

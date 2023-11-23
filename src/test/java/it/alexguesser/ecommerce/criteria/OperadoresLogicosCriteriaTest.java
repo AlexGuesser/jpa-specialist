@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.Pedido_;
 import it.alexguesser.ecommerce.model.StatusPedido;
@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class OperadoresLogicosCriteriaTest extends BaseTest {
+public class OperadoresLogicosCriteriaTest extends EntityManagerTest {
 
     @Test
     public void usarOperadores() {

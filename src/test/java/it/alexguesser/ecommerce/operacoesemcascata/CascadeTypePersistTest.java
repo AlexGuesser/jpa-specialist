@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.operacoesemcascata;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CascadeTypePersistTest extends BaseTest {
+public class CascadeTypePersistTest extends EntityManagerTest {
 
     @Test
     public void persistirPedidoComItens() {

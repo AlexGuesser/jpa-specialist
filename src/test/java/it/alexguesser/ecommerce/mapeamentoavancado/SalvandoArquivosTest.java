@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.mapeamentoavancado;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.NotaFiscal;
 import it.alexguesser.ecommerce.model.Pedido;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SalvandoArquivosTest extends BaseTest {
+public class SalvandoArquivosTest extends EntityManagerTest {
 
     @Test
     public void salvarXmlNota() {

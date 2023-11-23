@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.mapeamentoavancado;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Atributo;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.Produto;
@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class ElementCollectionTest extends BaseTest {
+public class ElementCollectionTest extends EntityManagerTest {
 
     @Test
     public void aplicarTags() {

@@ -7,13 +7,13 @@ import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.EnderecoEntregaPedido;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.StatusPedido;
 
-public class MapeamentoObjetoEmbutidoTest extends BaseTest {
+public class MapeamentoObjetoEmbutidoTest extends EntityManagerTest {
 
     @Test
     public void analisarMapeamentoObjetoEmbutido() {

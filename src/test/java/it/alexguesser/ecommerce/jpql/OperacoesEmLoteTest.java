@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.jpql;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 import jakarta.persistence.Query;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class OperacoesEmLoteTest extends BaseTest {
+public class OperacoesEmLoteTest extends EntityManagerTest {
 
     private static final int LIMITE_INSERCOES = 4;
 

@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.jpql;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.Produto;
 import jakarta.persistence.TypedQuery;
@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class ExpressoesCondicionaisTest extends BaseTest {
+public class ExpressoesCondicionaisTest extends EntityManagerTest {
 
     @Test
     public void usarExpressaoCondicionalLike() {

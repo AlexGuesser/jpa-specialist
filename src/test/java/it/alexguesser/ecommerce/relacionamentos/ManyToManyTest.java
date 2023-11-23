@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Categoria;
 import it.alexguesser.ecommerce.model.Produto;
 
-public class ManyToManyTest extends BaseTest {
+public class ManyToManyTest extends EntityManagerTest {
 
     @Test
     public void verificarRelacionamento() {

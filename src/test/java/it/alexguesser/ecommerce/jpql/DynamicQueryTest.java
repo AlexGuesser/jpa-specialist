@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.jpql;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.Assertions;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class DynamicQueryTest extends BaseTest {
+public class DynamicQueryTest extends EntityManagerTest {
 
     @Test
     public void executarConsultaDinamica() {

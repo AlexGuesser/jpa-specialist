@@ -2,10 +2,10 @@ package it.alexguesser.ecommerce.relacionamentos;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 
-public class EagerELazyTest extends BaseTest {
+public class EagerELazyTest extends EntityManagerTest {
 
     @Test
     public void verificarCarregamento() {

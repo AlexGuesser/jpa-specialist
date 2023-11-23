@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.SexoCliente;
 
-public class MapeandoEnumeracoesTest extends BaseTest {
+public class MapeandoEnumeracoesTest extends EntityManagerTest {
 
     @Test
     public void testarEnum() {

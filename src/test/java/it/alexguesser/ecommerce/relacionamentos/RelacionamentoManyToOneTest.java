@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.relacionamentos;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class RelacionamentoManyToOneTest extends BaseTest {
+public class RelacionamentoManyToOneTest extends EntityManagerTest {
 
     @Test
     public void verificarRelacionamento() {

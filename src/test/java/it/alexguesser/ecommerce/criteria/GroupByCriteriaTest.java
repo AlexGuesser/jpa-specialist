@@ -1,19 +1,55 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Join;
-import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.*;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class GroupByCriteriaTest extends BaseTest {
+public class GroupByCriteriaTest extends EntityManagerTest {
+
+    @Test
+    public void agruparResultadoComFuncoes() {
+        //         Total de vendas por mês.
+        //        String jpql = "select concat(year(p.dataCriacao), '/', function('monthname', p.dataCriacao)), sum(p.total) " +
+        //                " from Pedido p " +
+        //                " group by year(p.dataCriacao), month(p.dataCriacao) ";
+
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+
+        Expression<Integer> anoCriacaoPedido = criteriaBuilder
+                .function("year", Integer.class, root.get(Pedido_.dataCriacao));
+        Expression<Integer> mesCriacaoPedido = criteriaBuilder
+                .function("month", Integer.class, root.get(Pedido_.dataCriacao));
+        Expression<String> nomeMesCriacaoPedido = criteriaBuilder
+                .function("monthname", String.class, root.get(Pedido_.dataCriacao));
+
+        Expression<String> anoMesConcat = criteriaBuilder.concat(
+                criteriaBuilder.concat(
+                        anoCriacaoPedido.as(String.class),
+                        "/"),
+                nomeMesCriacaoPedido
+        );
+
+        criteriaQuery.multiselect(
+                anoMesConcat,
+                criteriaBuilder.sum(root.get(Pedido_.total))
+        );
+
+        criteriaQuery.groupBy(anoCriacaoPedido, mesCriacaoPedido);
+
+        TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Object[]> lista = typedQuery.getResultList();
+
+        lista.forEach(arr -> System.out.println("Ano/Mês: " + arr[0] + ", Sum: " + arr[1]));
+    }
 
     @Test
     public void agruparResultado1() {
@@ -85,6 +121,40 @@ public class GroupByCriteriaTest extends BaseTest {
                 c -> System.out.println("Cliente: " + c[0] + " , valor total de compras: " + c[1])
 
         );
+    }
+
+    @Test
+    public void groupByComHaving() {
+        // Total de vendas dentre as categorias que mais vendem." having sum(ip.precoProduto) > 100 ";
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Object[]> criteriaQuery = criteriaBuilder.createQuery(Object[].class);
+        Root<ItemPedido> root = criteriaQuery.from(ItemPedido.class);
+        Join<ItemPedido, Produto> joinProduto = root.join(ItemPedido_.produto);
+        Join<Produto, Categoria> joinProdutoCategoria = joinProduto.join(Produto_.categorias);
+        Expression<? extends Number> valorTotalProduto = criteriaBuilder.prod(
+                root.get(ItemPedido_.quantidade),
+                root.get(ItemPedido_.precoProduto));
+
+        criteriaQuery.multiselect(
+                joinProdutoCategoria.get(Categoria_.nome),
+                criteriaBuilder.sum(valorTotalProduto),
+                criteriaBuilder.avg(valorTotalProduto)
+        );
+
+        criteriaQuery.groupBy(joinProdutoCategoria.get(Categoria_.id));
+
+        criteriaQuery.having(
+                criteriaBuilder.greaterThan(
+                        criteriaBuilder.avg(valorTotalProduto).as(BigDecimal.class),
+                        new BigDecimal(700)));
+
+        TypedQuery<Object[]> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Object[]> lista = typedQuery.getResultList();
+
+        lista.forEach(arr -> System.out.println(
+                "Nome categoria: " + arr[0]
+                        + ", SUM: " + arr[1]
+                        + ", AVG: " + arr[2]));
     }
 
 

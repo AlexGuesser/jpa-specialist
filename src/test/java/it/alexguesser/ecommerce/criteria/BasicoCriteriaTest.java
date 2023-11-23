@@ -1,11 +1,8 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.ProdutoDto;
-import it.alexguesser.ecommerce.model.Cliente;
-import it.alexguesser.ecommerce.model.Cliente_;
-import it.alexguesser.ecommerce.model.Pedido;
-import it.alexguesser.ecommerce.model.Produto;
+import it.alexguesser.ecommerce.model.*;
 import jakarta.persistence.Tuple;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -18,7 +15,23 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BasicoCriteriaTest extends BaseTest {
+public class BasicoCriteriaTest extends EntityManagerTest {
+
+    @Test
+    public void usarDistinct() {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Pedido> criteriaQuery = criteriaBuilder.createQuery(Pedido.class);
+        Root<Pedido> root = criteriaQuery.from(Pedido.class);
+        root.join(Pedido_.itemPedidos);
+
+        criteriaQuery.select(root);
+        criteriaQuery.distinct(true);
+
+        TypedQuery<Pedido> typedQuery = entityManager.createQuery(criteriaQuery);
+        List<Pedido> lista = typedQuery.getResultList();
+
+        lista.forEach(p -> System.out.println("ID: " + p.getId()));
+    }
 
     @Test
     public void buscarPorId() {

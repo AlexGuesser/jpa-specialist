@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.NotaFiscal;
 import it.alexguesser.ecommerce.model.Pedido;
 import jakarta.persistence.TemporalType;
@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class PassandoParametrosCriteriaTest extends BaseTest {
+public class PassandoParametrosCriteriaTest extends EntityManagerTest {
 
     @Test
     public void passarParametro() {

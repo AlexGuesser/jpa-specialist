@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.PagamentoCartao;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.StatusPagamento;
 
-public class OneToOneTest extends BaseTest {
+public class OneToOneTest extends EntityManagerTest {
 
     @Test
     public void verificarRelacionamento() {

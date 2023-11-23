@@ -1,12 +1,12 @@
 package it.alexguesser.ecommerce.operacoesemcascata;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CascadeTypeRemoveTest extends BaseTest {
+public class CascadeTypeRemoveTest extends EntityManagerTest {
 
     @Test
     public void removerItensPedidoAtravesDePedido() {

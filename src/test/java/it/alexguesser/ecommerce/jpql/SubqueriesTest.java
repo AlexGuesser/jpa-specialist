@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.jpql;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.ItemPedido;
 import it.alexguesser.ecommerce.model.Pedido;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class SubqueriesTest extends BaseTest {
+public class SubqueriesTest extends EntityManagerTest {
 
     @Test
     public void pesquisarSubqueries() {

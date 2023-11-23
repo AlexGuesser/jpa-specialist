@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.mapeamentoavancado;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class HerancaTest extends BaseTest {
+public class HerancaTest extends EntityManagerTest {
 
     @Test
     public void salvarCliente() {

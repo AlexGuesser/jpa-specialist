@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.conhecendooentitymanager;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.StatusPedido;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class FlushTest extends BaseTest {
+public class FlushTest extends EntityManagerTest {
 
     @Test
     public void chamarFlush() {

@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.operacoesemcascata;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class CascadeTypeMergeTest extends BaseTest {
+public class CascadeTypeMergeTest extends EntityManagerTest {
 
     @Test
     public void atualizarItemPedidoAtravesDePedido() {

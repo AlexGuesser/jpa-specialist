@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 
-public class ConsultandoRegistrosTest extends BaseTest {
+public class ConsultandoRegistrosTest extends EntityManagerTest {
 
     @Test
     public void buscarPorId() {

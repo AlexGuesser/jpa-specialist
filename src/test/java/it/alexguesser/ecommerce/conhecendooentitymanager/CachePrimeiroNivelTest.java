@@ -1,10 +1,10 @@
 package it.alexguesser.ecommerce.conhecendooentitymanager;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 import org.junit.jupiter.api.Test;
 
-public class CachePrimeiroNivelTest extends BaseTest {
+public class CachePrimeiroNivelTest extends EntityManagerTest {
 
     @Test
     public void verificarCache() {

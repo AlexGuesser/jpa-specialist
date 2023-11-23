@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.conhecendooentitymanager;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.StatusPedido;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class ListenerTest extends BaseTest {
+public class ListenerTest extends EntityManagerTest {
 
     @Test
     public void acionarCallbacks() {

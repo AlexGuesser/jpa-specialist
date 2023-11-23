@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.mapeamentoavancado;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DetalhesColumnTest extends BaseTest {
+public class DetalhesColumnTest extends EntityManagerTest {
 
 
     @Test

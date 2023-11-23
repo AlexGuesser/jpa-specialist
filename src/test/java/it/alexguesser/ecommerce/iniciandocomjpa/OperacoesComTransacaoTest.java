@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Produto;
 
-public class OperacoesComTransacaoTest extends BaseTest {
+public class OperacoesComTransacaoTest extends EntityManagerTest {
 
     @Test
     public void abrirEFecharTransacao() {

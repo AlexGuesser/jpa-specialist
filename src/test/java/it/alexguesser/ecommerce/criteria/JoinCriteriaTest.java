@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.criteria;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class JoinCriteriaTest extends BaseTest {
+public class JoinCriteriaTest extends EntityManagerTest {
 
     @Test
     public void fazerJoin() {

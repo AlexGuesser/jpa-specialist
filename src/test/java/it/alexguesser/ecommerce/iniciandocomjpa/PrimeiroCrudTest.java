@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.iniciandocomjpa;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.SexoCliente;
 import org.junit.jupiter.api.MethodOrderer;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class PrimeiroCrudTest extends BaseTest {
+public class PrimeiroCrudTest extends EntityManagerTest {
 
     @Test
     public void inserirCliente() {

@@ -1,8 +1,8 @@
 package it.alexguesser.ecommerce.conhecendooentitymanager;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 
-public class EstadosECicloDeVidaTest extends BaseTest {
+public class EstadosECicloDeVidaTest extends EntityManagerTest {
 
     
 

@@ -1,12 +1,12 @@
 package it.alexguesser.ecommerce.conhecendooentitymanager;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.StatusPedido;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class GerenciamentoTransacaoTest extends BaseTest {
+public class GerenciamentoTransacaoTest extends EntityManagerTest {
 
     @Test
     public void abrirFecharCancelarTransacao() {

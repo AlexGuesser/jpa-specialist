@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.jpql;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.Produto;
 import jakarta.persistence.TypedQuery;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class NamedQueryTest extends BaseTest {
+public class NamedQueryTest extends EntityManagerTest {
 
 
     @Test

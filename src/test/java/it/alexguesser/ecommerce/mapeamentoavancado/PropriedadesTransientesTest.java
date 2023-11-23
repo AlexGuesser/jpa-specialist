@@ -1,12 +1,12 @@
 package it.alexguesser.ecommerce.mapeamentoavancado;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PropriedadesTransientesTest extends BaseTest {
+public class PropriedadesTransientesTest extends EntityManagerTest {
 
     @Test
     public void validarPrimeiroNome() {

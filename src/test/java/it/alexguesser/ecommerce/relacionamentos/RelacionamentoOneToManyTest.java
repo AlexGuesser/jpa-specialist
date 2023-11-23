@@ -7,12 +7,12 @@ import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.Cliente;
 import it.alexguesser.ecommerce.model.Pedido;
 import it.alexguesser.ecommerce.model.StatusPedido;
 
-public class RelacionamentoOneToManyTest extends BaseTest {
+public class RelacionamentoOneToManyTest extends EntityManagerTest {
 
     @Test
     public void verificarRelacionamento() {

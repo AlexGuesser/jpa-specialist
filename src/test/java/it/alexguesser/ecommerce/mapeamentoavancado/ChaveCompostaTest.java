@@ -1,6 +1,6 @@
 package it.alexguesser.ecommerce.mapeamentoavancado;
 
-import it.alexguesser.ecommerce.BaseTest;
+import it.alexguesser.ecommerce.EntityManagerTest;
 import it.alexguesser.ecommerce.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class ChaveCompostaTest extends BaseTest {
+public class ChaveCompostaTest extends EntityManagerTest {
 
     @Test
     public void salvarItem() {
