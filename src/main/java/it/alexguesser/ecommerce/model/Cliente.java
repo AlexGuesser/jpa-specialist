@@ -24,6 +24,20 @@ import java.util.Map;
         pkJoinColumns = @PrimaryKeyJoinColumn(name = "cliente_id"),
         foreignKey = @ForeignKey(name = "fk_cliente_detalhe_cliente")
 )
+@NamedStoredProcedureQuery(
+        name = "compraram_acima_media",
+        procedureName = "compraram_acima_media",
+        resultClasses = {
+                Cliente.class
+        },
+        parameters = {
+                @StoredProcedureParameter(
+                        name = "ano",
+                        type = Integer.class,
+                        mode = ParameterMode.IN
+                )
+        }
+)
 @Getter
 @Setter
 @AllArgsConstructor

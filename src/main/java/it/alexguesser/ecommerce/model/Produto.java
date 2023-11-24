@@ -1,5 +1,6 @@
 package it.alexguesser.ecommerce.model;
 
+import it.alexguesser.ecommerce.ProdutoDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,62 @@ import java.util.List;
 @Setter
 @NamedQueries(
         @NamedQuery(name = "Produto.listar", query = "select p from Produto p")
+)
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "produto_loja.listar",
+                query = "select * from produto_loja",
+                resultClass = Produto.class
+        ),
+        @NamedNativeQuery(
+                name = "ecm_produto.listar",
+                query = "select * from ecm_produto",
+                resultSetMapping = "ecm_produto.Produto"
+        )
+}
+)
+@SqlResultSetMappings(
+        {
+                @SqlResultSetMapping(
+                        name = "produto.Produto",
+                        entities = {
+                                @EntityResult(entityClass = Produto.class)
+                        }),
+                @SqlResultSetMapping(
+                        name = "produto-item_pedido.Produto-ItemPedido",
+                        entities = {
+                                @EntityResult(entityClass = Produto.class),
+                                @EntityResult(entityClass = ItemPedido.class)
+                        }),
+                @SqlResultSetMapping(
+                        name = "ecm_produto.Produto",
+                        entities = {
+                                @EntityResult(
+                                        entityClass = Produto.class,
+                                        fields = {
+                                                @FieldResult(name = "id", column = "prd_id"),
+                                                @FieldResult(name = "nome", column = "prd_nome"),
+                                                @FieldResult(name = "descricao", column = "prd_descricao"),
+                                                @FieldResult(name = "preco", column = "prd_preco"),
+                                                @FieldResult(name = "foto", column = "prd_foto"),
+                                                @FieldResult(name = "dataCriacao", column = "prd_data_criacao"),
+                                                @FieldResult(name = "dataUltimaAtualizacao", column = "prd_data_ultima_atualizacao"),
+                                        }
+                                )
+                        }),
+                @SqlResultSetMapping(
+                        name = "ecm_produto.ProdutoDto",
+                        classes = {
+                                @ConstructorResult(
+                                        targetClass = ProdutoDto.class,
+                                        columns = {
+                                                @ColumnResult(name = "prd_id", type = Integer.class),
+                                                @ColumnResult(name = "prd_nome", type = String.class)
+                                        }
+                                )
+                        }
+                )
+        }
 )
 public class Produto extends EntidadeComDataCriacaoEAtualizacao {
 
