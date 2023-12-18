@@ -4,11 +4,8 @@ import it.alexguesser.ecommerce.listener.GerarNotaFiscalListener;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -23,6 +20,31 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EntityListeners(GerarNotaFiscalListener.class)
+@NamedEntityGraphs(
+        {
+                @NamedEntityGraph(
+                        name = "Pedido.dadosEssencias",
+                        attributeNodes = {
+                                @NamedAttributeNode("dataCriacao"),
+                                @NamedAttributeNode("status"),
+                                @NamedAttributeNode("total"),
+                                @NamedAttributeNode(
+                                        value = "cliente",
+                                        subgraph = "cli"
+                                )
+                        },
+                        subgraphs = {
+                                @NamedSubgraph(
+                                        name = "cli",
+                                        attributeNodes = {
+                                                @NamedAttributeNode("nome"),
+                                                @NamedAttributeNode("cpf")
+                                        })
+                        }
+                )
+        }
+)
+@Cacheable
 public class Pedido extends EntidadeComDataCriacaoEAtualizacao {
 
     @ManyToOne(optional = false)

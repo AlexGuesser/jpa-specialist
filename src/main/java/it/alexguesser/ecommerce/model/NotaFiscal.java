@@ -18,7 +18,7 @@ import java.util.Date;
 public class NotaFiscal extends EntidadeBasePKInteger {
 
     @MapsId
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(
             name = "pedido_id",
             nullable = false,

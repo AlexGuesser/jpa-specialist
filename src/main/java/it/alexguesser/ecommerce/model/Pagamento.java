@@ -3,7 +3,6 @@ package it.alexguesser.ecommerce.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name = "pagamento")
@@ -14,7 +13,7 @@ import lombok.ToString;
 public abstract class Pagamento extends EntidadeBasePKInteger {
 
     @MapsId
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(
             name = "pedido_id",
             updatable = false,
