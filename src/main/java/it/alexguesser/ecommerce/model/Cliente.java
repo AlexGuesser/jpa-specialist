@@ -1,6 +1,9 @@
 package it.alexguesser.ecommerce.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,16 +48,19 @@ import java.util.Map;
 public class Cliente extends EntidadeBasePKInteger {
 
     @Column(length = 100, nullable = false)
+    @NotBlank
     private String nome;
 
     @Transient
     private String primeiroNome;
 
     @Column(length = 14, nullable = false)
+    @NotBlank
     private String cpf;
 
     @Column(name = "sexo_cliente", table = "cliente_detalhe", length = 30, nullable = false)
     @Enumerated(EnumType.STRING)
+    @NotNull
     private SexoCliente sexoCliente;
 
     @Column(name = "data_nascimento", table = "cliente_detalhe")

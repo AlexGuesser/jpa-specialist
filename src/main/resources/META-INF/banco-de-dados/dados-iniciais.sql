@@ -1,10 +1,10 @@
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
-insert into produto (nome, preco, data_criacao, descricao) values ('Kindle', 500.0, date_sub(sysdate(), interval 1 day), 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
-insert into produto (nome, preco, data_criacao, descricao) values ('PS5', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
-insert into produto (nome, preco, data_criacao, descricao) values ('PS3', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
-insert into produto (id, nome, preco, data_criacao, descricao) values (4, 'Câmera GoPro Hero 7', 1400.0, date_sub(sysdate(), interval 1 day), 'Desempenho 2x melhor.');
-insert into produto (id, nome, preco, data_criacao, descricao) values (5, 'Câmera Canon 80D', 3700.0, sysdate(), 'O melhor ajuste de foco.');
+insert into produto (nome, ativo, preco, data_criacao, descricao) values ('Kindle', 'SIM', 500.0, date_sub(sysdate(), interval 1 day), 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
+insert into produto (nome,  ativo, preco, data_criacao, descricao) values ('PS5', 'SIM', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
+insert into produto (nome,  ativo, preco, data_criacao, descricao) values ('PS3', 'SIM', 3799.99, date_sub(sysdate(), interval 1 day), 'O melhor console!');
+insert into produto (id,  ativo, nome, preco, data_criacao, descricao) values (4, 'SIM', 'Câmera GoPro Hero 7', 1400.0, date_sub(sysdate(), interval 1 day), 'Desempenho 2x melhor.');
+insert into produto (id,  ativo, nome, preco, data_criacao, descricao) values (5, 'NAO', 'Câmera Canon 80D', 3700.0, sysdate(), 'O melhor ajuste de foco.');
 
 insert into cliente(id, nome, cpf) values (1, "Alex Guesser", "123456456"), (2, "Nicolle Raitz Wilvert", "12421234123");
 insert into cliente_detalhe(cliente_id, sexo_cliente) values (1, "MASCULINO"), (2, "FEMININO");

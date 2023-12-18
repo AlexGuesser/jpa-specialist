@@ -2,6 +2,10 @@ package it.alexguesser.ecommerce.model;
 
 import it.alexguesser.ecommerce.listener.GerarNotaFiscalListener;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -27,6 +31,7 @@ public class Pedido extends EntidadeComDataCriacaoEAtualizacao {
             nullable = false,
             foreignKey = @ForeignKey(name = "fk_pedido_cliente")
     )
+    @NotNull
     private Cliente cliente; // QUANDO A PROPRIEDADE NÃO É UMA COLEÇÃO O CARREGAMENTO É EAGER POR PADRÃO
     // MAS CLARO, PODEMOS FAZER OVERRIDE DESSE COMPORTAMENTO COM O fetch
     // SOBRE optional:
@@ -34,6 +39,7 @@ public class Pedido extends EntidadeComDataCriacaoEAtualizacao {
     // USANDO optional = flase O HIBERNATE VAI USAR INNER JOIN
 
     @Column(name = "data_conclussao")
+    @PastOrPresent
     private LocalDateTime dataConclusao;
 
     @OneToOne(mappedBy = "pedido")
@@ -44,6 +50,7 @@ public class Pedido extends EntidadeComDataCriacaoEAtualizacao {
     private StatusPedido status;
 
     @Column(nullable = false)
+    @PositiveOrZero
     private BigDecimal total;
 
     @Embedded

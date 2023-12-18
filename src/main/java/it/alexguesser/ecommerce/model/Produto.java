@@ -2,6 +2,7 @@ package it.alexguesser.ecommerce.model;
 
 import it.alexguesser.ecommerce.ProdutoDto;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Length;
@@ -27,7 +28,7 @@ import java.util.List;
 @NamedNativeQueries({
         @NamedNativeQuery(
                 name = "produto_loja.listar",
-                query = "select * from produto_loja",
+                query = "select * from produto",
                 resultClass = Produto.class
         ),
         @NamedNativeQuery(
@@ -135,6 +136,11 @@ public class Produto extends EntidadeComDataCriacaoEAtualizacao {
     @Lob
     @Column(length = 100)
     private byte[] foto;
+
+    @Column(length = 3, nullable = false)
+    @NotNull
+    @Convert(converter = BooleanToSimNaoConverter.class)
+    private Boolean ativo = Boolean.TRUE;
 
     @Override
     protected void prePersist() {
