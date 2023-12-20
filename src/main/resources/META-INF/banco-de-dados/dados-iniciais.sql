@@ -71,5 +71,7 @@ insert into ecm_categoria (cat_id, cat_nome) values (206, 'Notebooks');
 insert into ecm_categoria (cat_id, cat_nome) values (207, 'Smartphones');
 insert into ecm_categoria (cat_id, cat_nome) values (208, 'Câmeras');
 
+update loja_ecommerce.produto set nome = "Kindle from another schema" where id = 1;
+
 drop function if exists acima_media_faturamento;
 create function acima_media_faturamento(valor double) returns boolean reads sql data return valor > (select avg(total) from pedido);

@@ -1,9 +1,7 @@
 package it.alexguesser.ecommerce.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -18,5 +16,13 @@ public class EntidadeBasePKInteger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Integer id;
+
+    @Version
+    @Column(columnDefinition = "integer not null default 0")
+    private Integer versao = 0;
+
+    @NotBlank
+    @Column(columnDefinition = "varchar(100) not null default 'algaworks'", updatable = false)
+    private String tenant = "algaworks";
 
 }

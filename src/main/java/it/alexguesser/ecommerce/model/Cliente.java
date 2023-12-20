@@ -3,7 +3,6 @@ package it.alexguesser.ecommerce.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -79,11 +78,6 @@ public class Cliente extends EntidadeBasePKInteger {
     private Map<String, String> contatos;
 
     public Cliente(String nome, SexoCliente sexoCliente, String cpf) {
-        this(null, nome, sexoCliente, cpf);
-    }
-
-    public Cliente(Integer id, String nome, SexoCliente sexoCliente, String cpf) {
-        super(id);
         this.nome = nome;
         this.sexoCliente = sexoCliente;
         this.cpf = cpf;

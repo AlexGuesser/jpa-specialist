@@ -59,7 +59,7 @@ public class OperacoesComTransacaoTest extends EntityManagerTest {
 
     @Test
     public void atualizarObjeto() {
-        Produto produto = new Produto();
+        Produto produto = entityManager.find(Produto.class, 1);
         produto.setId(1);
         produto.setNome("Kindle Paperwhite");
         produto.setDescricao("Conheça o novo Kindle");
