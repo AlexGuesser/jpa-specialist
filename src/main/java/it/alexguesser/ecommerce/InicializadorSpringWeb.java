@@ -64,6 +64,7 @@ public class InicializadorSpringWeb implements WebApplicationInitializer {
     }
 
     private OpenEntityManagerInViewFilter openEntityManagerInViewFilter() {
+        // Aqui é criado o EntityManager usando o bean do EntityManagerFactory
         OpenEntityManagerInViewFilter filter = new OpenEntityManagerInViewFilter();
 
         return filter;

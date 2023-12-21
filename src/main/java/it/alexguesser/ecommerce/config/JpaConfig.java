@@ -15,11 +15,13 @@ public class JpaConfig {
 
     @Bean
     public JpaTransactionManager jpaTransactionManager(EntityManagerFactory emf) {
+        // Esse manager gerencia as transações
         return new JpaTransactionManager(emf);
     }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        // AQUI É CRIADO O EntityManagerFactory
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
 
         bean.setPersistenceUnitName("Ecommerce-PU");

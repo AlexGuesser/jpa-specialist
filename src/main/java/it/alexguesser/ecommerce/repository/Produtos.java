@@ -15,7 +15,8 @@ public class Produtos {
 
     public Produto buscar(Integer id, String tenant) {
         return entityManager
-                .createQuery("select p from Produto p where p.id = :id and p.tenant = :tenant",
+                .createQuery(
+                        "select p from Produto p where p.id = :id and p.tenant = :tenant",
                         Produto.class)
                 .setParameter("id", id)
                 .setParameter("tenant", tenant)
